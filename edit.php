@@ -22,51 +22,53 @@ if ($res) {
         <div class="row">
             <div class="col-12">
                 <form method="POST">
-                    <table class="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">Họ và tên</th>
-                                <th scope="col">Chức vụ</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Số máy bàn</th>
-                                <th scope="col">Số di động</th>
-                                <th scope="col">Tên đơn vị</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><input type="text" name="tennv" value="<?= $tennv ?>"></td>
-                                <td><input type="text" name="chucvu" value="<?= $chucvu ?>"></td>
-                                <td><input type="email" name="email" value="<?= $email ?>"></td>
-                                <td><input type="text" name="mayban" value="<?= $mayban ?>"></td>
-                                <td><input type="text" name="sodidong" value="<?= $sodidong ?>"></td>
-                                <td><select name="madv">
-                                        <?php
-                                        $sql = "SELECT * FROM db_donvi";
-                                        $res = mysqli_query($conn, $sql);
-                                        $count = mysqli_num_rows($res);
+                    <div class="mb-3 ">
+                        <label class="form-label">Họ và tên</label>
+                        <input type="text" name="tennv" class="form-control" value="<?= $tennv ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Chức vụ</label>
+                        <input type="text" name="chucvu" class="form-control" value="<?= $chucvu ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" value="<?= $email ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Số máy bàn</label>
+                        <input type="text" name="mayban" class="form-control" value="<?= $mayban ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Số di động</label>
+                        <input type="text" name="sodidong" class="form-control" value="<?= $sodidong ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tên đơn vị</label>
+                        <select class="form-select" name="madv">
+                            <?php
+                            $sql = "SELECT * FROM db_donvi";
+                            $res = mysqli_query($conn, $sql);
+                            $count = mysqli_num_rows($res);
 
-                                        if ($count > 0) {
-                                            while ($row = mysqli_fetch_assoc($res)) {
-                                                $madv = $row['madv'];
-                                                $tendv = $row['tendv'];
-                                        ?>
-                                                <option value="<?= $madv; ?>" <?php if ($madv == $old_madv) {
-                                                                                    echo "selected";
-                                                                                } ?>>
-                                                    <?= $tendv ?></option>
-                                            <?php
-                                            }
-                                        } else {
-                                            ?>
-                                            <option value="0">No Found</option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            if ($count > 0) {
+                                while ($row = mysqli_fetch_assoc($res)) {
+                                    $madv = $row['madv'];
+                                    $tendv = $row['tendv'];
+                            ?>
+                                    <option class="form-control" value="<?= $madv; ?>" <?php if ($madv == $old_madv) {
+                                                                                            echo "selected";
+                                                                                        } ?>>
+                                        <?= $tendv ?></option>
+                                <?php
+                                }
+                            } else {
+                                ?>
+                                <option value="0">No Found</option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
                     <input type="submit" name="submit" class="add" value="Sửa">
                 </form>
             </div>
@@ -92,10 +94,10 @@ if (isset($_POST['submit'])) {
     $res = mysqli_query($conn, $sql);
     if ($res) {
         $_SESSION['noti'] = "Đã sửa thành công";
-        header("location: index.php");
+        header("location:" . $siteurl . 'index.php');
     } else {
         $_SESSION['noti'] = "Lỗi! Sửa không thành công";
-        header("location: index.php");
+        header("location:" . $siteurl . 'index.php');
     }
 }
 include("./bridge/footer.php");

@@ -15,16 +15,15 @@ include("./bridge/header.php")
                                 <th scope="col">Số máy bàn</th>
                                 <th scope="col">Số di động</th>
                                 <th scope="col">Tên đơn vị</th>
-
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="tennv"></td>
-                                <td><input type="text" name="chucvu"></td>
-                                <td><input type="email" name="email"></td>
-                                <td><input type="text" name="mayban"></td>
-                                <td><input type="text" name="sodidong"></td>
+                                <td><input class="form-control" type="text" name="tennv"></td>
+                                <td><input class="form-control" type="text" name="chucvu"></td>
+                                <td><input class="form-control" type="email" name="email"></td>
+                                <td><input class="form-control" type="text" name="mayban"></td>
+                                <td><input class="form-control" type="text" name="sodidong"></td>
                                 <td><select name="madv">
                                         <?php
                                         $sql = "SELECT * FROM db_donvi";

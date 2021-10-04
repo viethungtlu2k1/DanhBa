@@ -29,7 +29,6 @@ include("./bridge/header.php")
           </thead>
           <tbody>
             <?php
-
             $sql = "SELECT nv.manv, nv.tennv, nv.chucvu, nv.email, nv.sodidong, dv.tendv 
                     FROM db_nhanvien nv, db_donvi dv WHERE nv.madv = dv.madv ORDER BY nv.manv";
             $result = mysqli_query($conn, $sql);

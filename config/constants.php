@@ -2,6 +2,8 @@
 if (!isset($_SESSION)) {
     session_start();
 }
+
+$siteurl = "http://localhost/danhba/";
 $link = "localhost/foododer";
 $servername = "localhost";
 $username = "root";

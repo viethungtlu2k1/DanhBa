@@ -9,8 +9,8 @@ $res = mysqli_query($conn, $sql);
 
 if ($res) {
     $_SESSION['noti'] = "Đã xóa";
-    header("location: index.php");
+    header("location:" . $siteurl . 'index.php');
 } else {
     $_SESSION['noti'] = "Lỗi khi xóa";
-    header("location: index.php");
+    header("location:" . $siteurl . 'index.php');
 }
