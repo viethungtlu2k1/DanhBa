@@ -51,7 +51,7 @@ a {
 }
 .add {
   padding: 4px 15px;
-  width: 8%;
+  width: 65px;
   text-align: center;
   color: #ffffff;
   border-radius: 5px;
@@ -65,9 +65,7 @@ a.add:hover {
   margin-bottom: 100px;
 }
 body {
-  background-color: #5286f3;
   font-size: 14px;
-  color: #fff;
 }
 /* login */
 .simple-login-container {
@@ -82,8 +80,5 @@ body {
 
 .simple-login-container .btn-login {
   background-color: #ff5964;
-  color: #fff;
-}
-a {
   color: #fff;
 }

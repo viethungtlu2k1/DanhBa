@@ -12,7 +12,7 @@ include("./bridge/header.php")
         }
         ?>
         <br>
-        <a href="add.php" class="add">Thêm</a>
+        <a href="add_DBNV.php" class="add">Thêm</a>
         <table class="table table-striped table-hover">
           <thead>
             <tr>
@@ -45,8 +45,8 @@ include("./bridge/header.php")
                   <td><?php echo $row['email']; ?> </td>
                   <td><?php echo $row['sodidong']; ?> </td>
                   <td><?php echo $row['tendv']; ?> </td>
-                  <td><a href="edit.php?manv=<?php echo $row['manv']; ?>"><i class="fas fa-edit"></i></a></td>
-                  <td><a href="delete.php?manv=<?php echo $row['manv']; ?>"><i class="fas fa-trash"></i></a></td>
+                  <td><a href="edit_DBNV.php?manv=<?php echo $row['manv']; ?>"><i class="fas fa-edit"></i></a></td>
+                  <td><a href="delete_DBNV.php?manv=<?php echo $row['manv']; ?>"><i class="fas fa-trash"></i></a></td>
                 </tr>
             <?php
                 $i++;

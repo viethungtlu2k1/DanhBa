@@ -24,7 +24,7 @@ include("./bridge/header.php")
                                 <td><input class="form-control" type="email" name="email"></td>
                                 <td><input class="form-control" type="text" name="mayban"></td>
                                 <td><input class="form-control" type="text" name="sodidong"></td>
-                                <td><select name="madv">
+                                <td><select name="madv" class="form-select">
                                         <?php
                                         $sql = "SELECT * FROM db_donvi";
                                         $res = mysqli_query($conn, $sql);

@@ -1,6 +1,6 @@
 <?php
 include('./config/constants.php');
-include('checklogin.php');
+include('./bridge/checklogin.php');
 ob_start(); // loi cua header()
 
 ?>
@@ -28,7 +28,7 @@ ob_start(); // loi cua header()
                     </a>
                     <div class="header-right col-6 text-end header-meta">
                         <div class="login">
-                            <a href="logout.php">Logout</a>
+                            <a href="logout.php">Đăng xuất</a>
                             <img src="./images/vi.jpg" alt="">
                             <img src="./images//en.jpg" alt="">
                         </div>
@@ -52,7 +52,7 @@ ob_start(); // loi cua header()
                                         <a class="nav-link" id="qliDanhBaNV" aria-current="page" href="index.php">Quản Lý Danh bạ nhân viên</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="qliDanhBaDV" href="dbDonVi.php">Quản Lý danh bạ đơn vị</a>
+                                        <a class="nav-link" id="qliDanhBaDV" href="DBDonVi.php">Quản Lý danh bạ đơn vị</a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" id="qliTaiKhoan" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
