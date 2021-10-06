@@ -61,16 +61,17 @@ ob_start(); // loi cua header() nen phai dung
 if (isset($_POST["submit"])) {
     $email = $_POST['email'];
     $pass = $_POST['pass'];
-    $matkhau = password_hash($pass, PASSWORD_DEFAULT);
+    //$matkhau = password_hash($pass, PASSWORD_DEFAULT);
     $sql = "SELECT * FROM `users` WHERE `email` = '$email' and `status` = 1 ";
 
     $res = mysqli_query($conn, $sql);
     if ($res) {
-        // đăng nhập thành công 
         $row = mysqli_fetch_assoc($res);
         if (password_verify($pass, $row['password'])) {
+            // đăng nhập thành công 
             $_SESSION['noti'] = "<p class = 'text-success'>Đã đăng nhập </p>";
             $_SESSION['user'] = $row["first_name"] . " " . $row['last_name'];
+            $_SESSION['user_id'] = $row['userid'];
             header("location:" . $siteurl . 'index.php');
         } else {
             $_SESSION['noti'] = '<p class="text-danger">Tài khoản mật khẩu chưa chính xác</p>';

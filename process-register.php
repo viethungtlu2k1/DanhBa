@@ -8,6 +8,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+
 if (isset($_POST['submit'])) {
     $first_name = $_POST['firstName'];
     $last_name  = $_POST['lastName'];
@@ -24,6 +25,7 @@ if (isset($_POST['submit'])) {
         $value = 'failed pass';
         header("Location:register.php?reply=$value");
     } else {
+        // đăng kí thành công 
         $str = rand();
         $code = md5($str);
         $pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
@@ -33,6 +35,7 @@ if (isset($_POST['submit'])) {
 
         if ($result_2 > 0) {
             // send mail
+
             require './sendEmai/Exception.php';
             require './sendEmai/PHPMailer.php';
             require './sendEmai/SMTP.php';

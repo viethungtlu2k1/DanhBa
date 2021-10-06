@@ -3,7 +3,7 @@ include("./config/constants.php");
 $email = $_GET['email'];
 $code = $_GET['code'];
 
-$sql = "SELECT * FROM users WHERE email = '$email'";
+$sql = "SELECT * FROM users WHERE email = '$email' and code = '$code'";
 $res1 = mysqli_query($conn, $sql);
 
 
