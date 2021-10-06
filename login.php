@@ -66,10 +66,11 @@ if (isset($_POST["submit"])) {
 
     $res = mysqli_query($conn, $sql);
     if ($res) {
+        // đăng nhập thành công 
         $row = mysqli_fetch_assoc($res);
         if (password_verify($pass, $row['password'])) {
             $_SESSION['noti'] = "<p class = 'text-success'>Đã đăng nhập </p>";
-            $_SESSION['user'] = $row['email'];
+            $_SESSION['user'] = $row["first_name"] . " " . $row['last_name'];
             header("location:" . $siteurl . 'index.php');
         } else {
             $_SESSION['noti'] = '<p class="text-danger">Tài khoản mật khẩu chưa chính xác</p>';
