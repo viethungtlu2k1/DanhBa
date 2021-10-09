@@ -2,9 +2,6 @@
 include('./config/constants.php');
 require 'Excel/vendor/autoload.php';
 
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-
 
 if (isset($_POST['inport_file_btn'])) {
     $allweb_ext = ['xls', 'csv', 'xlsx'];
@@ -36,6 +33,7 @@ if (isset($_POST['inport_file_btn'])) {
             $row = mysqli_fetch_assoc($res1);
             $madv = $row['madv'];
             // thêm 1 dòng dữ liệu mới
+            // dữ liệu thêm vào cần phải chuẩn 
             $sql2 = "INSERT INTO `db_nhanvien`(`tennv`, `chucvu`, `mayban`, `email`, `sodidong`, `madv`) 
             VALUES ('$tennv','$chucvu','$mayban','$email','$sodidong','$madv')";
             $res2 = mysqli_query($conn, $sql2);

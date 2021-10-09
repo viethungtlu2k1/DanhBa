@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
         $str = rand();
         $code = md5($str);
         $pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
-        echo $sql_2 = "INSERT INTO users(first_name, last_name, email, password,code,avatar) 
+        $sql_2 = "INSERT INTO users(first_name, last_name, email, password,code,avatar) 
         VALUES ('$first_name','$last_name','$email','$pass_hash','$code','$image_name')";
         $result_2 = mysqli_query($conn, $sql_2);
 
