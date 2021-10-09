@@ -22,11 +22,13 @@
                                 echo '<p class="text-danger">* Email đã tồn tại</p>';
                             } elseif ($_GET['reply'] == "failed pass") {
                                 echo '<p class="text-danger">* Các mật khẩu đã nhập không khớp. Hãy thử lại.</p>';
+                            } else {
+                                echo '<p class="text-danger">* Lỗi khi chọn ảnh đại diện.</p>';
                             }
                         }
 
                         ?>
-                        <form method="POST" action="">
+                        <form method="POST" action="" enctype="multipart/form-data">
                             <div class="form-floating mb-3">
                                 <input type="text" name="firstName" class="form-control" id="floatingInput" placeholder="Viet">
                                 <label for="floatingInput">Họ</label>
@@ -34,6 +36,10 @@
                             <div class="form-floating mb-3">
                                 <input type="text" name="lastName" class="form-control" id="floatingInput" placeholder="Hung">
                                 <label for="floatingInput">Tên</label>
+                            </div>
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Ảnh đại diện</label>
+                                <input class="form-control" type="file" name="avatar" value="Chọn ảnh">
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">

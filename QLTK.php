@@ -12,9 +12,13 @@ include("./bridge/check_user.php");
                     echo $_SESSION['noti'];
                     unset($_SESSION['noti']);
                 }
+                if (isset($_SESSION['img_change'])) {
+                    echo $_SESSION['img_change'];
+                    unset($_SESSION['img_change']);
+                }
+
                 ?>
                 <br>
-                <a href="add_DBNV.php" class="add">Thêm</a>
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -42,8 +46,8 @@ include("./bridge/check_user.php");
                                     <td><?php echo $row['last_name']; ?> </td>
                                     <td><?php echo $row['email']; ?> </td>
                                     <td><?php echo $row['registration_date']; ?> </td>
-                                    <td><a href="#"><i class="fas fa-edit"></i></a></td>
-                                    <td><a href="#"><i class="fas fa-trash"></i></a></td>
+                                    <td><a href="edit_QLTK.php?userid=<?php echo $row['userid']; ?>"><i class="fas fa-edit"></i></a></td>
+                                    <td><a href="delete_QLTK.php?userid=<?php echo $row['userid']; ?>"><i class="fas fa-trash"></i></a></td>
                                 </tr>
                         <?php
                                 $i++;

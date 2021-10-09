@@ -82,3 +82,7 @@ body {
   background-color: #ff5964;
   color: #fff;
 }
+
+.img_user {
+  max-width: 192px;
+}

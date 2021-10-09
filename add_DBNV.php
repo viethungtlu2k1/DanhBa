@@ -48,7 +48,20 @@ include("./bridge/header.php")
                             </tr>
                         </tbody>
                     </table>
-                    <input type="submit" name="submit" class="add" value="Thêm">
+                    <input type="submit" name="submit" class="btn btn-primary" value="Thêm">
+                </form>
+                <div class="mt-5">
+                    <h5>Chọn file Excel: </h5>
+                </div>
+                <form action="addNV_Excel.php" method="POST" class="mt-4" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="file" name="import_file" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="submit" name="inport_file_btn" class="btn btn-primary" value="Thêm">
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

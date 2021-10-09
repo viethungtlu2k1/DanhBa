@@ -10,12 +10,41 @@ use PHPMailer\PHPMailer\Exception;
 
 
 if (isset($_POST['submit'])) {
+    // xu li up file
+
+
+
     $first_name = $_POST['firstName'];
     $last_name  = $_POST['lastName'];
     $email      = $_POST['email'];
     $pass1      = $_POST['pass1'];
     $pass2      = $_POST['pass2'];
-
+    if (isset($_FILES['avatar'])) {
+        $image_name = $_FILES['avatar']['name'];
+        $source_path = $_FILES['avatar']['tmp_name'];
+        $save_path = "images/avatar_user/" . $image_name;
+        // kiểm tra xem có file nào đã được chọn hay chưa
+        if ($image_name != "") {
+            // đổi tên file ảnh 
+            // $ext = end(explode('.', $image_name));
+            // echo $image_name = "userImage_" . $userid . '.' . $ext;
+            // kiểm tra  có phải là file ảnh hay không
+            $check = getimagesize($_FILES["avatar"]["tmp_name"]);
+            if ($check !== false) {
+                // nếu là file ảnh thì ...
+                $upload = move_uploaded_file($source_path, $save_path);
+                if ($upload == false) {
+                    $value = 'failed image';
+                    header("Location:register.php?reply=$value");
+                }
+                //echo print_r($check);
+            } else {
+                // nếu không phải file ảnh thì hiện ra thông báo khi submit
+                $value = 'failed image';
+                header("Location:register.php?reply=$value");
+            }
+        }
+    }
     $sql_1 = "SELECT * FROM users WHERE email='$email'";
     $result_1 = mysqli_query($conn, $sql_1);
     if (mysqli_num_rows($result_1) > 0) {
@@ -26,11 +55,14 @@ if (isset($_POST['submit'])) {
         header("Location:register.php?reply=$value");
     } else {
         // đăng kí thành công 
+        if ($image_name == "") { // nếu k chọn ảnh thì để là ảnh mặc định
+            echo $image_name = 'avatar_default.png';
+        }
         $str = rand();
         $code = md5($str);
         $pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
-        $sql_2 = "INSERT INTO users(first_name, last_name, email, password,code) 
-        VALUES ('$first_name','$last_name','$email','$pass_hash','$code')";
+        echo $sql_2 = "INSERT INTO users(first_name, last_name, email, password,code,avatar) 
+        VALUES ('$first_name','$last_name','$email','$pass_hash','$code','$image_name')";
         $result_2 = mysqli_query($conn, $sql_2);
 
         if ($result_2 > 0) {
