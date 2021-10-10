@@ -1,5 +1,6 @@
 <?php
 include("./config/constants.php");
+include("./bridge/check_user.php");
 
 $madv = $_GET['madv'];
 

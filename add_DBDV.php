@@ -1,5 +1,6 @@
 <?php
-include("./bridge/header.php")
+include("./bridge/header.php");
+include("./bridge/check_user.php");
 ?>
 <div class="main">
     <div class="container">

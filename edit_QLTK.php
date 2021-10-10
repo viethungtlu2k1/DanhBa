@@ -1,6 +1,6 @@
 <?php
 include("./bridge/header.php");
-
+include("./bridge/check_user.php");
 $userid = $_GET['userid'];
 
 $sql = "SELECT * FROM users WHERE userid = $userid";

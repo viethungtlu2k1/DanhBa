@@ -1,6 +1,6 @@
 <?php
 include("./config/constants.php");
-
+include("./bridge/check_user.php");
 $manv = $_GET['manv'];
 
 $sql = "DELETE FROM `db_nhanvien` WHERE manv = $manv";

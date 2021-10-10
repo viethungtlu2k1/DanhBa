@@ -3,7 +3,9 @@ include('./config/constants.php');
 include('./bridge/checklogin.php');
 ob_start(); // loi cua header()
 
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,22 +59,15 @@ ob_start(); // loi cua header()
                                     <li class="nav-item dropdown">
                                         <?php
                                         $id = $_SESSION['user_id'];
-                                        $sql = "SELECT user_level FROM users WHERE userid = $id";
-                                        $res = mysqli_query($conn, $sql);
-                                        if ($res) {
-
-                                            $level = mysqli_fetch_assoc($res);
-                                            if ($level['user_level'] == 1) {
-                                                $_SESSION['check_user'] = "TRUE";
+                                        if (user_level($id) == 1) { // nếu là cấp 1 
                                         ?>
-                                                <a class="nav-link" id="qliTaiKhoan" href="QLTK.php" role="button">
-                                                    Quản lý Tài khoản
-                                                </a>
+                                            <a class="nav-link" id="qliTaiKhoan" href="QLTK.php" role="button">
+                                                Quản lý Tài khoản
+                                            </a>
                                         <?php
-                                            }
                                         }
-                                        ?>
 
+                                        ?>
                                     </li>
                                 </ul>
                                 <form class="d-flex">

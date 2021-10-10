@@ -1,6 +1,6 @@
 <?php
 include("./bridge/header.php");
-
+include("./bridge/check_user.php");
 $manv = $_GET['manv'];
 
 $sql = "SELECT * FROM db_nhanvien WHERE manv = $manv";

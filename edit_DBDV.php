@@ -1,6 +1,6 @@
 <?php
 include("./bridge/header.php");
-
+include("./bridge/check_user.php");
 $madv = $_GET['madv'];
 
 $sql = "SELECT * FROM db_donvi WHERE madv = $madv";

@@ -1,6 +1,7 @@
 <?php
 include('./config/constants.php');
 require 'Excel/vendor/autoload.php';
+include("./bridge/check_user.php");
 
 
 if (isset($_POST['inport_file_btn'])) {

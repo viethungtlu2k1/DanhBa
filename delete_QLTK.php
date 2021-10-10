@@ -1,6 +1,6 @@
 <?php
 include("./config/constants.php");
-
+include("./bridge/check_user.php");
 $userid = $_GET['userid'];
 
 $sql = "DELETE FROM `users` WHERE userid = $userid";

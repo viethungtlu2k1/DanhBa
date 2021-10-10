@@ -1,5 +1,6 @@
 <?php
-if (!isset($_SESSION['check_user'])) {
-    $_SESSION['noti'] = "Xin vui lòng đăng nhập";
+
+$id = $_SESSION['user_id'];
+if (user_level($id) == 0) {
     header("location:" . $siteurl . "index.php");
 }

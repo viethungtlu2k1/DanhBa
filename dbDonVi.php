@@ -14,7 +14,14 @@ include("./bridge/header.php")
                 }
                 ?>
                 <br>
-                <a href="add_DBDV.php" class="add">Thêm</a>
+                <?php
+                $id = $_SESSION['user_id'];
+                if (user_level($id) == 1) { // nếu là cấp 1 
+                ?>
+                    <a href="add_DBDV.php" class="add">Thêm</a>
+                <?php
+                }
+                ?>
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -25,8 +32,16 @@ include("./bridge/header.php")
                             <th scope="col">Website</th>
                             <th scope="col">Số di động</th>
                             <th scope="col">Thuộc Đơn vị</th>
-                            <th scope="col">Sửa</th>
-                            <th scope="col">Xóa</th>
+                            <?php
+                            $id = $_SESSION['user_id'];
+                            if (user_level($id) == 1) { // nếu là cấp 1 
+                            ?>
+                                <th scope="col">Sửa</th>
+                                <th scope="col">Xóa</th>
+                            <?php
+                            }
+                            ?>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -61,8 +76,16 @@ include("./bridge/header.php")
 
                                         ?>
                                     </td>
-                                    <td><a href="edit_DBDV.php?madv=<?php echo $row['madv']; ?>"><i class="fas fa-edit"></i></a></td>
-                                    <td><a href="delete_DBDV.php?madv=<?php echo $row['madv']; ?>"><i class="fas fa-trash"></i></a></td>
+                                    <?php
+                                    $id = $_SESSION['user_id'];
+                                    if (user_level($id) == 1) { // nếu là cấp 1 
+                                    ?>
+                                        <td><a href="edit_DBDV.php?madv=<?php echo $row['madv']; ?>"><i class="fas fa-edit"></i></a></td>
+                                        <td><a href="delete_DBDV.php?madv=<?php echo $row['madv']; ?>"><i class="fas fa-trash"></i></a></td>
+                                    <?php
+                                    }
+                                    ?>
+
                                 </tr>
                         <?php
                                 $i++;
