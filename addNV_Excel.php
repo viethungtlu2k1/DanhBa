@@ -17,12 +17,12 @@ if (isset($_POST['inport_file_btn'])) {
         $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($targetPath);
         $data = $spreadsheet->getActiveSheet()->toArray();
         $i = 0;
-        foreach ($data as $row) {
+        foreach ($data as $row) { // xét từng dòng
             $i++;
-            if ($i == 1) {
+            if ($i == 1) { // bỏ qua dòng đầu tiên
                 continue;
             }
-            $tennv = $row['0'];
+            $tennv = $row['0']; // lấy từng cột
             $chucvu = $row['1'];
             $mayban = $row['2'];
             $email = $row['3'];

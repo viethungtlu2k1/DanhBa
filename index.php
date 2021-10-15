@@ -46,6 +46,13 @@ include("./bridge/header.php")
 
           </tbody>
         </table>
+        <form action="export_excel.php" method="POST">
+          <div class="row">
+            <div class="col-md-6">
+              <button type="submit" name="submit" class="btn btn-primary">Tải File</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>

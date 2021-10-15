@@ -20,9 +20,9 @@ if ($res) {
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form method="POST" enctype="multipart/form-data">
-                    <div class="mb-3 ">
-                        <label class="form-label">Họ</label>
+                <form id="form" method="POST" enctype="multipart/form-data">
+                    <div class=" mb-3 ">
+                        <label class=" form-label">Họ</label>
                         <input type="text" name="first_name" class="form-control" value="<?= $first_name ?>">
                     </div>
                     <div class="mb-3">
@@ -43,7 +43,13 @@ if ($res) {
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Thay đổi ảnh đại diện: </label>
-                        <input type="file" name="new_avatar" class="form-control">
+                        <input id="uploadImage" type="file" name="new_avatar" class="form-control">
+                    </div>
+                    <div class='preview mb-3'>
+                        <div id="preview">
+                            <img src="#" hidden />
+                        </div>
+                        <div id="err"></div>
                     </div>
                     <input type="submit" name="submit" class="add" value="Sửa">
                 </form>

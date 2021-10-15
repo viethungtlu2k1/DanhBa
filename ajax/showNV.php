@@ -22,7 +22,7 @@ if (mysqli_num_rows($result) > 0) {
             if (user_level($id) == 1) { // nếu là cấp 1 
             ?>
                 <td><a href="edit_DBNV.php?manv=<?php echo $row['manv']; ?>"><i class="fas fa-edit"></i></a></td>
-                <td><a href="#" id="deleteNV"><i class="fas fa-trash"></i></a></td>
+                <td><a href="#" id="deleteNV" data-manv="<?= $row['manv'] ?>"><i class="fas fa-trash"></i></a></td>
             <?php
             }
             ?>
